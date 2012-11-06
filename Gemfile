@@ -19,6 +19,9 @@ gem 'rspec', :group => "test"
 gem 'capybara', :group => "test"
 gem 'cucumber', :group => "test"
 gem 'rack-test', :require => "rack/test", :group => "test"
+gem 'factory_girl', :group => "test"
+gem 'database_cleaner', :group => "test"
+gem 'spork', :group => "test"
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
