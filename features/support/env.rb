@@ -8,6 +8,16 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
+  require File.expand_path(File.dirname(__FILE__) + "/../../config/boot")
+
+  require 'capybara/cucumber'
+  require 'rspec/expectations'
+
+  ##
+  # You can handle all padrino applications using instead:
+  #   Padrino.application
+  Capybara.app = Oneline.tap { |app|  }
 end
 
 Spork.each_run do
@@ -43,17 +53,3 @@ end
 #
 # These instructions should self-destruct in 10 seconds.  If they don't, feel
 # free to delete them.
-
-
-
-
-PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
-require File.expand_path(File.dirname(__FILE__) + "/../../config/boot")
-
-require 'capybara/cucumber'
-require 'rspec/expectations'
-
-##
-# You can handle all padrino applications using instead:
-#   Padrino.application
-Capybara.app = Oneline.tap { |app|  }
