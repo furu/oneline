@@ -13,6 +13,19 @@ Spork.prefork do
 
   RSpec.configure do |conf|
     conf.include Rack::Test::Methods
+
+    conf.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:transaction)
+    end
+
+    conf.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    conf.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 
   def app
