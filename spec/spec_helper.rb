@@ -21,6 +21,13 @@ Spork.prefork do
     #   Padrino.application
     Oneline.tap { |app|  }
   end
+
+  FactoryGirl.definition_file_paths = [
+    File.join(Padrino.root, 'factories'),
+    File.join(Padrino.root, 'test', 'factories'),
+    File.join(Padrino.root, 'spec', 'factories')
+  ]
+  FactoryGirl.find_definitions
 end
 
 Spork.each_run do
