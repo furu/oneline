@@ -5,7 +5,7 @@
 end
 
 もし /^"(.*?)"ページにアクセス$/ do |page_name|
-  pending # express the regexp above with the code you wish you had
+  visit("/")
 end
 
 ならば /^"(.*?)"と表示されている$/ do |str|
