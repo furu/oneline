@@ -1,7 +1,7 @@
 # coding: utf-8
 
 前提 /^"(.*?)"の"(.*?)"という投稿がある$/ do |name, comment|
-  pending # express the regexp above with the code you wish you had
+  FactoryGirl.create :post, name: name, comment: comment
 end
 
 もし /^"(.*?)"ページにアクセス$/ do |page_name|
