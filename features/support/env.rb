@@ -18,11 +18,20 @@ Spork.prefork do
   # You can handle all padrino applications using instead:
   #   Padrino.application
   Capybara.app = Oneline.tap { |app|  }
+
+  FactoryGirl.definition_file_paths = [
+    File.join(Padrino.root, 'factories'),
+    File.join(Padrino.root, 'test', 'factories'),
+    File.join(Padrino.root, 'spec', 'factories')
+  ]
+  FactoryGirl.find_definitions
 end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
 
+  FactoryGirl.factories.clear
+  FactoryGirl.reload
 end
 
 # --- Instructions ---
