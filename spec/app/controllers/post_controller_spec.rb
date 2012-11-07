@@ -4,7 +4,7 @@ describe "PostController" do
   describe "GET index" do
     subject { last_response }
 
-    before(:each) { get :index }
+    before(:each) { get "/" }
 
     it { should be_ok }
   end

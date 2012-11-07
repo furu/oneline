@@ -18,5 +18,6 @@ Oneline.controllers :post do
   #   "Hello world!"
   # end
 
-  
+  get :index, :map => "/" do
+  end
 end
